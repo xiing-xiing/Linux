@@ -1,0 +1,1 @@
+grep "Out of memory" /var/log/messages
