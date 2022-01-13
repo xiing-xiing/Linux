@@ -1,0 +1,6 @@
+ find . -ctime +120 -type f| xargs rm -rf
+清理某天前的日志
+
+
+5 4 * * * find {目录} -type f -size +1000M|xargs rm -rf
+清理某个大小的日志

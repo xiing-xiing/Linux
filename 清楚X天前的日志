@@ -1,1 +1,0 @@
- find . -ctime +60 -type f| xargs rm -rf
