@@ -1,0 +1,13 @@
+1、如何看linux是arm还是x86
+使用arch命令查看，aarch64是arm的机器，x86_64是x86的机器
+
+2、如何查看linux系统安装时间
+tune2fs -l /dev/sda1|grep 'Filesystem created:'
+
+3、linux如何查看网卡
+ls /etc/sysconfig/network-scripts|grep    {网卡名称}
+
+4、scp传输文件夹
+scp -r  {待传输目录} {用户}@{要传输的ip}:{要传输目录}
+
+
