@@ -1,0 +1,20 @@
+#可以挂在的物理磁盘都在/dev目录之下
+#查看磁盘的命令：lsblk
+
+#挂盘操作参考，磁盘初始化成对应的格式，比如格式化成ext格式
+mkfs.ext4 /dev/sdb
+mkfs.ext4 /dev/nvme1n1p1
+mkfs.ext4 /dev/sdc 
+
+#创建对应的目录当挂载点
+mkdir -p /data1
+
+将磁盘挂载到挂载点
+mount -t ext4 -o noatime,data=writeback,barrier=0,nobh,errors=remount-ro /dev/sdb /data1
+
+#将磁盘的挂载写入/etc/fstab文件，这样就可以防止开机丢失相关的挂载信息
+lsblk -f |grep data1
+echo "UUID={上一步获得的uuid} /data1  ext4 defaults     0   0" >>/etc/fstab
+
+#挂载磁盘
+mount -a
