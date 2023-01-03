@@ -1,0 +1,25 @@
+sshd服务的相关配置都在：/etc/ssh/sshd_config
+
+以下是sshd服务的一些参数：
+# SSH连接方式，参数为1或者2，这里仅使用SSH2作为连接
+Protocol 2
+
+# serverkey强度
+ServerKeyBits 4096
+
+# 禁用root账户登录，非必要，若直接使用root账户登陆就不能禁止，否则无法登陆
+# no表示禁用
+PermitRootLogin no 
+
+# 是否让 sshd 去检查用户家目录或相关档案的权限数据，
+# 这是为了担心使用者将某些重要档案的权限设错，可能会导致一些问题所致。
+# 例如使用者的 ~.ssh/ 权限设错时，某些特殊情况下会不许用户登入
+StrictModes no
+
+# 密匙认证信息配置
+RSAAuthentication yes
+PubkeyAuthentication yes
+AuthorizedKeysFile      /root/.ssh/authorized_keys
+
+# 禁用密码登录，安全要紧
+PasswordAuthentication no
