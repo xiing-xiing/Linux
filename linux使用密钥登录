@@ -1,0 +1,9 @@
+1、生成密钥对
+ssh-keygen
+命令执行完后，会有一堆花里胡哨的输出，可以忽略，这样在你刚才指定的地方就有了一对密钥，其中私钥就是上面指定的名字，公钥则多一个“.pub”后缀
+
+2、把公钥的内容追加到ssh服务器的 ~/.ssh/authorized_keys
+cat id_rsa.pub >> ~/.ssh/authorized_keys
+
+3、下载你的私钥，并且保证私钥只有600权限
+chmod 600 id_rsa
