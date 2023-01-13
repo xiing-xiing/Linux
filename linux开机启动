@@ -1,0 +1,2 @@
+vim  /etc/rc.local
+把程序放到：/etc/init.d 
