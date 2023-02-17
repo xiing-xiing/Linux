@@ -1,0 +1,6 @@
+cp /etc/pam.d/sshd /tmp && cp /etc/ssh/sshd_config /tmp
+yum --enablerepo=tlinux-testing update openssh
+cp /tmp/sshd /etc/pam.d/sshd && cp /tmp/sshd_config /etc/ssh/sshd_config
+chmod 600 /etc/ssh/ssh*key
+vim /etc/ssh/sshd_config,取消注释这行：PermitRootLogin yes,即允许root账号登录
+systemctl restart sshd 重启sshd服务
