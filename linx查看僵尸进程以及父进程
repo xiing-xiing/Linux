@@ -1,0 +1,16 @@
+如此执行：
+ps -efww | grep -v grep | grep defunct | while read line
+do
+  echo "$line"
+  pid=$(echo "$line" | awk '{print $2}')
+  while test ${pid:-1} -ne 1
+  do
+    data="$(ps --no-headers -efww -q $pid)"
+    echo "$data"
+    pid=$(echo "$data" | awk '{print $3}')
+  done
+done
+
+随后使用查看containerd
+docker ps|grep
+
