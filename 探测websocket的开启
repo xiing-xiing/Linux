@@ -1,0 +1,4 @@
+对应命令：
+curl --include --no-buffer --header "Connection: Upgrade" --header "Upgrade: websocket" --header "Host: example.com:80" --header "Origin: http://example.com:80" http://example.com:80/
+
+如果返回101状态码，那么websocket就开启了
