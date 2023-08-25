@@ -1,0 +1,1 @@
+sed -i '/check_zk/ s/^/#/' /var/spool/cron/root && /sbin/service crond reload
