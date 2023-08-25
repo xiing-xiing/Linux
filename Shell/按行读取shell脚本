@@ -1,0 +1,13 @@
+#按行读取，source执行
+
+IFS_old=$IFS   #老换行符 
+IFS=$'\n'      #新换行符
+
+
+
+for line in `cat {对应文件}`
+do
+     echo $line
+     kubectl  exec  -n{命名空间} $line --  ps -ef|grep {目标}
+     sleep 1
+done
