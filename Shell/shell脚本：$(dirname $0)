@@ -1,0 +1,4 @@
+在linux中，$()与倒引号``的作用是一样的，其中是要执行的linux命令
+在linux中，dirname命令可以返回文件所在的目录
+在linux中,SHELL_PATH=$(cd "$(dirname "$0")";pwd)的表示如下：
+执行括号中的命令，把括号中命令获得的值赋予SHELL_PATH,随后进入脚本所在目录，并打印出脚本所在的目录，给SHELL_PATH
