@@ -1,0 +1,13 @@
+去注释：
+IFS_old=$IFS
+IFS=$'\n'
+
+grep ip  upstream.conf  > qu
+sed 's/#//' qu >qu2
+
+
+加注释：
+IFS_old=$IFS
+IFS=$'\n'
+grep ip  upstream.conf  > jia
+sed 's/server/#server/' jia >jia2
