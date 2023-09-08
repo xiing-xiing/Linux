@@ -1,0 +1,20 @@
+可以使用以下命令来远程执行命令而不登陆远程主机：
+ssh user@host 'command'
+
+其中，user是远程主机的用户名，host是远程主机的IP地址或主机名，command是需要执行的命令。
+这种方式不需要输入密码，但需要在本地主机上配置SSH密钥认证。具体步骤如下：
+
+在本地主机上生成SSH密钥对：
+ssh-keygen -t rsa
+
+将公钥复制到远程主机上：
+ssh-copy-id user@host
+
+如果没有安装ssh-copy-id，可以使用以下命令手动复制公钥：
+cat ~/.ssh/id_rsa.pub | ssh user@host 'mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys'
+其中，id_rsa.pub是本地主机上的公钥文件，authorized_keys是远程主机上的授权文件。
+
+确认本地主机上的SSH配置文件（~/.ssh/config）中没有设置StrictHostKeyChecking选项，或者将其设置为no。
+Host *
+  StrictHostKeyChecking no
+完成上述步骤后，你可以使用上述命令在不登陆远程主机的情况下执行命令。
